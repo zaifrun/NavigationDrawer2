@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--This ensures only one is check of the items in the group -->
+    <!--This ensures only one item can be checked of the items in the group -->
     <group android:checkableBehavior="single">
 
 

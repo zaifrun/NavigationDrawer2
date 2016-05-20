@@ -111,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
         //calling sync state is necessay or else your hamburger icon wont show up
         actionBarDrawerToggle.syncState();
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+       // doing the fragment transaction here - replacing frame with HomeFragment -
+        //which is the startup fragment in the app.
         fragmentTransaction.replace(R.id.frame, new HomeFragment());
         fragmentTransaction.commit(); //set starting fragment
 
