@@ -39,53 +39,54 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
 
 
-                //Checking if the item is in checked state or not, if not make it in checked state
-                if (menuItem.isChecked()) menuItem.setChecked(false);
-                else menuItem.setChecked(true);
+        //Checking if the item is in checked state or not, if not make it in checked state
+        if (menuItem.isChecked())
+            menuItem.setChecked(false);
+        else
+            menuItem.setChecked(true);
 
-                //Closing drawer on item click
-                drawerLayout.closeDrawers();
+        //Closing drawer on item click
+        drawerLayout.closeDrawers();
 
-                //Check to see which item was being clicked and perform appropriate action
-                Fragment fragment = null;
-                String title= "";
-                switch (menuItem.getItemId()) {
+        //Check to see which item was being clicked and perform appropriate action
+        Fragment fragment = null;
+        String title= "";
+        switch (menuItem.getItemId()) {
 
+            //Replacing the main content with ContentFragment
+            case R.id.main:
+                fragment = new HomeFragment();
+                title = getResources().getString(R.string.home);
+                break;
+            case R.id.hyundai:
+                fragment = new HyundaiFragment();
+                title = getResources().getString(R.string.hyundai);
+                break;
+            case R.id.skoda:
+                fragment = new SkodaFragment();
+                title = getResources().getString(R.string.skoda);
 
-                    //Replacing the main content with ContentFragment Which is our Inbox View;
-                    case R.id.main:
-                        fragment = new HomeFragment();
-                        title = getResources().getString(R.string.home);
-                        break;
-                    case R.id.hyundai:
-                        fragment = new HyundaiFragment();
-                        title = getResources().getString(R.string.hyundai);
-                        break;
-                    case R.id.skoda:
-                        fragment = new SkodaFragment();
-                        title = getResources().getString(R.string.skoda);
+                break;
+            case R.id.porsche:
+                fragment = new PorscheFragment();
+                title = getResources().getString(R.string.porsche);
 
-                        break;
-                    case R.id.porsche:
-                        fragment = new PorscheFragment();
-                        title = getResources().getString(R.string.porsche);
+                break;
+            default:
+                Toast.makeText(getApplicationContext(), "Somethings Wrong", Toast.LENGTH_SHORT).show();
 
-                        break;
-                    default:
-                        Toast.makeText(getApplicationContext(), "Somethings Wrong", Toast.LENGTH_SHORT).show();
-
-                        return true;
-
-                } //after switch
-                if (fragment != null) {
-                    android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.frame, fragment);
-                    fragmentTransaction.commit();
-                    getSupportActionBar().setTitle(title); //set the title of the action bar
-                }
                 return true;
+
+            } //after switch
+            if (fragment != null) {
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.frame, fragment);
+                fragmentTransaction.commit();
+                getSupportActionBar().setTitle(title); //set the title of the action bar
             }
-        });
+            return true;
+            }
+        });  //end of nagivation drawer code
 
         // Initializing Drawer Layout and ActionBarToggle
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
@@ -93,14 +94,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onDrawerClosed(View drawerView) {
-                // Code here will be triggered once the drawer closes as we dont want anything to happen so we leave this blank
+                // Code here will be triggered once the drawer closes
                 super.onDrawerClosed(drawerView);
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
-                // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
-
+                // Code here will be triggered once the drawer open
                 super.onDrawerOpened(drawerView);
             }
         };
@@ -132,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
