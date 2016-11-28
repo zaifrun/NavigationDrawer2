@@ -16,7 +16,9 @@ public class MainActivity extends AppCompatActivity {
 
     //Defining Variables
     private Toolbar toolbar;
+    //The navigationview
     private NavigationView navigationView;
+    //our layout for the navigationdrawer
     private DrawerLayout drawerLayout;
 
     @Override
@@ -32,26 +34,28 @@ public class MainActivity extends AppCompatActivity {
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
 
         //Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener()
+                {
 
             // This method will trigger on item Click of navigation menu
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
 
 
-        //Checking if the item is in checked state or not, if not make it in checked state
-        if (menuItem.isChecked())
-            menuItem.setChecked(false);
-        else
-            menuItem.setChecked(true);
+            //Checking if the item is in checked state or not, if not make it in checked state
+            if (menuItem.isChecked())
+                menuItem.setChecked(false);
+            else
+                menuItem.setChecked(true);
 
-        //Closing drawer on item click
-        drawerLayout.closeDrawers();
+            //Closing drawer on item click
+            drawerLayout.closeDrawers();
 
-        //Check to see which item was being clicked and perform appropriate action
-        Fragment fragment = null;
-        String title= "";
-        switch (menuItem.getItemId()) {
+            //Check to see which item was being clicked and perform appropriate action
+            Fragment fragment = null;
+            String title= "";
+            switch (menuItem.getItemId()) {
 
             //Replacing the main content with ContentFragment
             case R.id.main:
@@ -90,6 +94,9 @@ public class MainActivity extends AppCompatActivity {
 
         // Initializing Drawer Layout and ActionBarToggle
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
+
+        //Showing how to override onDrawerClosed and onDrawerOpened
+        //although in this app we actually dont do anything in there
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.openDrawer, R.string.closeDrawer){
 
             @Override
@@ -106,7 +113,9 @@ public class MainActivity extends AppCompatActivity {
         };
 
         //Setting the actionbarToggle to drawer layout
-        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+
+        //drawerLayout.setDrawerListener(actionBarDrawerToggle); //This is deprecated
 
         //calling sync state is necessay or else your hamburger icon wont show up
         actionBarDrawerToggle.syncState();

@@ -34,7 +34,10 @@
         android:layout_width="wrap_content"
         android:layout_gravity="start"
         app:headerLayout="@layout/header"
+        app:itemTextAppearance="@style/NavDrawerTextStyle"
         app:menu="@menu/drawer"
         />
+    <!-- the text style is defined in the styles.xml -->
+
 </android.support.v4.widget.DrawerLayout>
 
