@@ -142,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            //no settings activity - code does not do anything
             return true;
         }
 

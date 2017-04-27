@@ -18,4 +18,6 @@ public class HyundaiFragment extends Fragment {
         View v = inflater.inflate(R.layout.hyundaifragment,container,false);
         return v;
     }
+
+
 }
