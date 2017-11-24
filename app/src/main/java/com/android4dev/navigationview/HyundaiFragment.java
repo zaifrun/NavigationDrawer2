@@ -16,6 +16,7 @@ public class HyundaiFragment extends Fragment {
         //This corresponds to the onCreate that we have in our
         //normal activities
         View v = inflater.inflate(R.layout.hyundaifragment,container,false);
+
         return v;
     }
 
