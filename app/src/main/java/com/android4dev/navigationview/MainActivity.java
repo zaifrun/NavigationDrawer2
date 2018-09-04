@@ -1,6 +1,7 @@
 package com.android4dev.navigationview;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -27,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Initializing Toolbar and setting it as the actionbar
-      toolbar = (Toolbar) findViewById(R.id.toolbar);
+      toolbar = findViewById(R.id.toolbar);
       setSupportActionBar(toolbar);
 
         //Initializing NavigationView
-        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        navigationView = findViewById(R.id.navigation_view);
 
         //Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
         navigationView.setNavigationItemSelectedListener(
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
             // This method will trigger on item Click of navigation menu
             @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
 
             //Checking if the item is in checked state or not, if not make it in checked state
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         });  //end of nagivation drawer code
 
         // Initializing Drawer Layout and ActionBarToggle
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
+        drawerLayout = findViewById(R.id.drawer);
 
         //Showing how to override onDrawerClosed and onDrawerOpened
         //although in this app we actually dont do anything in there
