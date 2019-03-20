@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 /**
  * Created by makn on 03-05-2016.
@@ -18,7 +19,8 @@ public class PorscheFragment  extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        name = savedInstanceState.getString("name");
+        if (savedInstanceState!=null)
+            name = savedInstanceState.getString("name");
         super.onCreate(savedInstanceState);
     }
 
@@ -31,6 +33,8 @@ public class PorscheFragment  extends Fragment {
             @Override
             public void onClick(View v) {
                 //TODO ...
+                Toast toast = Toast.makeText(getContext(),"Button clicked",Toast.LENGTH_LONG);
+                toast.show();
             }
         });
 
