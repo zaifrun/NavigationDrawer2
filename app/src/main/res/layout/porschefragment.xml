@@ -9,6 +9,11 @@
         android:textSize="@dimen/fragmentTextSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <Button
+        android:text="Click me!"
+        android:id="@+id/myButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <ImageView
         android:layout_width="match_parent"
